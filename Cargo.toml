@@ -1,0 +1,27 @@
+[package]
+edition = "2024"
+
+authors = ["AlseinX <xyh951115@live.com>"]
+description = "An immutable owned string that could be cheaply cloned and passed through FFI."
+documentation = "https://docs.rs/xstring"
+homepage = "https://github.com/AlseinX/xstring"
+keywords = ["string", "ffi", "c-abi"]
+license = "MIT OR Apache-2.0"
+name = "xstring"
+repository = "https://github.com/AlseinX/xstring"
+version = "0.0.0"
+
+[features]
+default = ["std", "serde"]
+
+# enabling support for `std` types
+std = []
+
+# enabling nighly unstable feature `allocator_api`
+allocator_api = []
+
+# enabling support for `serde`
+serde = ["dep:serde"]
+
+[dependencies]
+serde = {version = "1", optional = true}
