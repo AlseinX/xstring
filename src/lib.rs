@@ -4,6 +4,7 @@
 extern crate alloc;
 
 mod allocator;
+mod conv;
 #[cfg(feature = "serde")]
 mod serde;
 mod str;

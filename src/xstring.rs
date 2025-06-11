@@ -307,6 +307,38 @@ impl<A: Allocator> AsRef<[u8]> for XString<std::path::Path, A> {
     }
 }
 
+#[cfg(feature = "std")]
+impl<A: Allocator> AsRef<std::ffi::OsStr> for XString<str, A> {
+    #[inline(always)]
+    fn as_ref(&self) -> &std::ffi::OsStr {
+        (**self).as_ref()
+    }
+}
+
+#[cfg(feature = "std")]
+impl<A: Allocator> AsRef<std::path::Path> for XString<str, A> {
+    #[inline(always)]
+    fn as_ref(&self) -> &std::path::Path {
+        (**self).as_ref()
+    }
+}
+
+#[cfg(feature = "std")]
+impl<A: Allocator> AsRef<std::ffi::OsStr> for XString<std::path::Path, A> {
+    #[inline(always)]
+    fn as_ref(&self) -> &std::ffi::OsStr {
+        (**self).as_ref()
+    }
+}
+
+#[cfg(feature = "std")]
+impl<A: Allocator> AsRef<std::path::Path> for XString<std::ffi::OsStr, A> {
+    #[inline(always)]
+    fn as_ref(&self) -> &std::path::Path {
+        (**self).as_ref()
+    }
+}
+
 #[cfg(target_pointer_width = "64")]
 const POINTER_SIZE: usize = 8;
 
